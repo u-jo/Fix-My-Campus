@@ -56,20 +56,20 @@
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="102" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="5kZ-lp-Ubz">
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell opaque="NO" alpha="0.60000000000000009" contentMode="scaleToFill" selectionStyle="blue" indentationWidth="10" reuseIdentifier="Feed Post" rowHeight="102" id="Aw7-Ah-2Na">
+                                    <tableViewCell opaque="NO" alpha="0.60000000000000009" contentMode="scaleToFill" selectionStyle="blue" indentationWidth="10" reuseIdentifier="Feed Post" rowHeight="102" id="Aw7-Ah-2Na" customClass="FMCFeedCell">
                                         <rect key="frame" x="0.0" y="22" width="320" height="102"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                             <rect key="frame" x="0.0" y="0.0" width="320" height="101"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Okm-OS-Q9w">
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Okm-OS-Q9w" customClass="FMCProfilePictureFeedView">
                                                     <subviews>
                                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Uw0-3m-Pjr">
                                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                                                         </view>
                                                     </subviews>
-                                                    <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                     <constraints>
                                                         <constraint firstItem="Uw0-3m-Pjr" firstAttribute="top" secondItem="Okm-OS-Q9w" secondAttribute="top" type="default" id="D8p-t5-nuy"/>
                                                         <constraint firstItem="Uw0-3m-Pjr" firstAttribute="leading" secondItem="Okm-OS-Q9w" secondAttribute="leading" type="default" id="KC9-C4-nr9"/>
@@ -79,7 +79,7 @@
                                                 </view>
                                                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZLr-yT-4Oh">
                                                     <constraints>
-                                                        <constraint firstAttribute="width" constant="59" id="Sl6-dE-MHQ"/>
+                                                        <constraint firstAttribute="width" constant="152" id="8lG-wI-I44"/>
                                                     </constraints>
                                                     <attributedString key="attributedText">
                                                         <fragment content="Label">
@@ -94,10 +94,10 @@
                                                 </label>
                                                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6eD-mU-iVY">
                                                     <constraints>
-                                                        <constraint firstAttribute="width" constant="59" id="v4y-IJ-cgw"/>
+                                                        <constraint firstAttribute="width" constant="83" id="XF0-ta-1RA"/>
                                                     </constraints>
                                                     <attributedString key="attributedText">
-                                                        <fragment content="Label">
+                                                        <fragment content="Added">
                                                             <attributes>
                                                                 <color key="NSColor" cocoaTouchSystemColor="darkTextColor"/>
                                                                 <font key="NSFont" size="12" name="LucidaGrande"/>
@@ -140,6 +140,12 @@
                                             <constraint firstAttribute="trailing" secondItem="6eD-mU-iVY" secondAttribute="trailing" constant="20" type="default" id="xvr-q0-O3o"/>
                                             <constraint firstItem="1mO-6L-w86" firstAttribute="top" secondItem="Aw7-Ah-2Na" secondAttribute="top" constant="24" id="yzy-2n-SIE"/>
                                         </constraints>
+                                        <connections>
+                                            <outlet property="addDateLabel" destination="6eD-mU-iVY" id="eNy-U9-OEY"/>
+                                            <outlet property="addedByLabel" destination="ZLr-yT-4Oh" id="JIE-49-yfb"/>
+                                            <outlet property="comment" destination="1mO-6L-w86" id="XIi-c4-QhU"/>
+                                            <outlet property="userProfilePictureView" destination="Okm-OS-Q9w" id="xOH-Aq-FI5"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                                 <connections>
@@ -270,7 +276,7 @@
         <scene sceneID="rR8-dQ-PHE">
             <objects>
                 <navigationController id="bs0-Dn-JG0" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Map" image="Icon.png" id="eQd-HX-mNz"/>
+                    <tabBarItem key="tabBarItem" title="Map" id="eQd-HX-mNz"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="Uhm-Hl-lta">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -289,43 +295,7 @@
     <resources>
         <image name="FMCWelcome.jpg" width="822" height="215"/>
         <image name="Icon-36.png" width="36" height="36"/>
-        <image name="Icon.png" width="57" height="57"/>
     </resources>
-    <classes>
-        <class className="FBLoginView" superclassName="UIView">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/FBLoginView.h"/>
-            <relationships>
-                <relationship kind="outlet" name="delegate"/>
-            </relationships>
-        </class>
-        <class className="FMCFeedViewController" superclassName="FMCViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/FMCFeedViewController.h"/>
-            <relationships>
-                <relationship kind="outlet" name="tableView" candidateClass="UITableView"/>
-            </relationships>
-        </class>
-        <class className="FMCLoginViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/FMCLoginViewController.h"/>
-            <relationships>
-                <relationship kind="outlet" name="loginView" candidateClass="FBLoginView"/>
-            </relationships>
-        </class>
-        <class className="FMCMapViewController" superclassName="FMCViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/FMCMapViewController.h"/>
-        </class>
-        <class className="FMCPostViewController" superclassName="FMCViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/FMCPostViewController.h"/>
-        </class>
-        <class className="FMCViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/FMCViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="logOut:"/>
-            </relationships>
-        </class>
-        <class className="NSLayoutConstraint" superclassName="NSObject">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/NSLayoutConstraint.h"/>
-        </class>
-    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>

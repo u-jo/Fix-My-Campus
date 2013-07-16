@@ -37,6 +37,8 @@
 		4163814A1795013C00D4292E /* Icon-40.png in Resources */ = {isa = PBXBuildFile; fileRef = 416381491795013C00D4292E /* Icon-40.png */; };
 		4163814C1795016400D4292E /* Icon-36.png in Resources */ = {isa = PBXBuildFile; fileRef = 4163814B1795016400D4292E /* Icon-36.png */; };
 		4163815017950BF200D4292E /* FMCFeedCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4163814F17950BF200D4292E /* FMCFeedCell.m */; };
+		4163815317950DC200D4292E /* FMCProfilePictureFeedView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4163815217950DC100D4292E /* FMCProfilePictureFeedView.m */; };
+		416381551795191F00D4292E /* Lucida Grande-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 416381541795191F00D4292E /* Lucida Grande-Bold.ttf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -81,6 +83,9 @@
 		4163814B1795016400D4292E /* Icon-36.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-36.png"; sourceTree = "<group>"; };
 		4163814E17950BF200D4292E /* FMCFeedCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMCFeedCell.h; sourceTree = "<group>"; };
 		4163814F17950BF200D4292E /* FMCFeedCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMCFeedCell.m; sourceTree = "<group>"; };
+		4163815117950DC100D4292E /* FMCProfilePictureFeedView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMCProfilePictureFeedView.h; sourceTree = "<group>"; };
+		4163815217950DC100D4292E /* FMCProfilePictureFeedView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMCProfilePictureFeedView.m; sourceTree = "<group>"; };
+		416381541795191F00D4292E /* Lucida Grande-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lucida Grande-Bold.ttf"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -143,6 +148,8 @@
 			children = (
 				4163814E17950BF200D4292E /* FMCFeedCell.h */,
 				4163814F17950BF200D4292E /* FMCFeedCell.m */,
+				4163815117950DC100D4292E /* FMCProfilePictureFeedView.h */,
+				4163815217950DC100D4292E /* FMCProfilePictureFeedView.m */,
 				4163802B178BBDB400D4292E /* FMCAppDelegate.h */,
 				4163802C178BBDB400D4292E /* FMCAppDelegate.m */,
 				41638053178D37E900D4292E /* FMCPostViewController.h */,
@@ -164,6 +171,7 @@
 		41638023178BBDB400D4292E /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				416381541795191F00D4292E /* Lucida Grande-Bold.ttf */,
 				4163814B1795016400D4292E /* Icon-36.png */,
 				416381491795013C00D4292E /* Icon-40.png */,
 				416381471795004600D4292E /* 16.png */,
@@ -254,6 +262,7 @@
 				416381481795004600D4292E /* 16.png in Resources */,
 				4163814A1795013C00D4292E /* Icon-40.png in Resources */,
 				4163814C1795016400D4292E /* Icon-36.png in Resources */,
+				416381551795191F00D4292E /* Lucida Grande-Bold.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -273,6 +282,7 @@
 				41638058178D3FAB00D4292E /* FMCFeedViewController.m in Sources */,
 				4163813E1793B06E00D4292E /* Post.m in Sources */,
 				4163815017950BF200D4292E /* FMCFeedCell.m in Sources */,
+				4163815317950DC200D4292E /* FMCProfilePictureFeedView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -7,7 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
-
+#import "FMCProfilePictureFeedView.h"
 @interface FMCFeedCell : UITableViewCell
+@property (strong, nonatomic) IBOutlet UILabel *addDateLabel;
+@property (strong, nonatomic) IBOutlet UILabel *addedByLabel;
+@property (strong, nonatomic) IBOutlet UITextView *comment;
+@property (strong, nonatomic) IBOutlet FMCProfilePictureFeedView *userProfilePictureView;
+
 
 @end

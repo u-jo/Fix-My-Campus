@@ -23,6 +23,10 @@
 	</dict>
 	<key>CFBundleIdentifier</key>
 	<string>com.ujo.${PRODUCT_NAME:rfc1034identifier}</string>
+	<key>UIAppFonts</key>
+	<array>
+		<string>Lucida Grande-Bold.ttf</string>
+	</array>
 	<key>CFBundleInfoDictionaryVersion</key>
 	<string>6.0</string>
 	<key>CFBundleName</key>

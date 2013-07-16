@@ -46,7 +46,6 @@
     UINavigationController *selectedViewController = (UINavigationController *)[tabBarController selectedViewController];
     FMCViewController *viewController = (FMCViewController *)[selectedViewController topViewController];
     if (![[viewController presentedViewController] isKindOfClass:[FMCLoginViewController class]]) {
-        NSLog(@"Dismissing FMC Login View Controller with no animations");
         UIStoryboard *sb = [UIStoryboard storyboardWithName:@"MainStoryboard" bundle:nil];
         FMCLoginViewController *loginViewController = [sb instantiateViewControllerWithIdentifier:@"FMCLoginViewController"];
         loginViewController.modalTransitionStyle = UIModalTransitionStyleCoverVertical;
@@ -61,7 +60,6 @@
     UINavigationController *selectedViewController = (UINavigationController *)[tabBarController selectedViewController];
     FMCViewController *viewController = (FMCViewController *)[selectedViewController topViewController];
     if (![[viewController presentedViewController] isKindOfClass:[FMCLoginViewController class]] && ![FBSession.activeSession isOpen]) {
-            NSLog(@"Presenting FMC Login View Controller with no animations");
             UIStoryboard *sb = [UIStoryboard storyboardWithName:@"MainStoryboard" bundle:nil];
             FMCLoginViewController *loginViewController = [sb instantiateViewControllerWithIdentifier:@"FMCLoginViewController"];
             loginViewController.modalTransitionStyle = UIModalTransitionStyleCoverVertical;
