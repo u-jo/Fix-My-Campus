@@ -8,6 +8,7 @@
 
 #import "FMCFeedViewController.h"
 #import "Post.h"
+#import <QuartzCore/QuartzCore.h>
 @interface FMCFeedViewController ()
 @property (strong, nonatomic) NSMutableArray *postsArray;
 @property (strong, nonatomic) FBGraphObject *graphObject;
@@ -25,7 +26,6 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Feed Post" forIndexPath:indexPath];
-    
     return cell;
 }
 
@@ -43,8 +43,8 @@
     [refreshControl addTarget:self action:@selector(requestForFeed) forControlEvents:UIControlEventValueChanged];
     self.refreshControl = refreshControl;
     [self.tableView addSubview:self.refreshControl];
-    [self.refreshControl beginRefreshing];
-    [self requestForFeed];
+    
+    
 }
 
 - (void)viewWillAppear:(BOOL)animated
@@ -127,7 +127,8 @@
     [super viewDidAppear:animated];
     [FBSession.activeSession requestNewReadPermissions:@[@"user_groups"] completionHandler:^(FBSession *session, NSError *error) {
         if (!error) {
-            
+            [self.refreshControl beginRefreshing];
+            [self requestForFeed];
         }
     }];
     

@@ -29,9 +29,14 @@
 		41638052178D2E6800D4292E /* FMCMapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 41638051178D2E6800D4292E /* FMCMapViewController.m */; };
 		41638055178D37EA00D4292E /* FMCPostViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 41638054178D37EA00D4292E /* FMCPostViewController.m */; };
 		41638058178D3FAB00D4292E /* FMCFeedViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 41638057178D3FAB00D4292E /* FMCFeedViewController.m */; };
-		4163813B17936E1B00D4292E /* bandaid.png in Resources */ = {isa = PBXBuildFile; fileRef = 4163813A17936E1B00D4292E /* bandaid.png */; };
 		4163813E1793B06E00D4292E /* Post.m in Sources */ = {isa = PBXBuildFile; fileRef = 4163813D1793B06E00D4292E /* Post.m */; };
-		416381401794DF1800D4292E /* fixmycampus.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 4163813F1794DF1800D4292E /* fixmycampus.jpg */; };
+		416381421794E66200D4292E /* FMCWelcome.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 416381411794E66100D4292E /* FMCWelcome.jpg */; };
+		416381441794F99C00D4292E /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 416381431794F99C00D4292E /* Icon.png */; };
+		416381461794FC0E00D4292E /* Icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 416381451794FC0E00D4292E /* Icon@2x.png */; };
+		416381481795004600D4292E /* 16.png in Resources */ = {isa = PBXBuildFile; fileRef = 416381471795004600D4292E /* 16.png */; };
+		4163814A1795013C00D4292E /* Icon-40.png in Resources */ = {isa = PBXBuildFile; fileRef = 416381491795013C00D4292E /* Icon-40.png */; };
+		4163814C1795016400D4292E /* Icon-36.png in Resources */ = {isa = PBXBuildFile; fileRef = 4163814B1795016400D4292E /* Icon-36.png */; };
+		4163815017950BF200D4292E /* FMCFeedCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4163814F17950BF200D4292E /* FMCFeedCell.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -66,10 +71,16 @@
 		41638054178D37EA00D4292E /* FMCPostViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMCPostViewController.m; sourceTree = "<group>"; };
 		41638056178D3FAA00D4292E /* FMCFeedViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMCFeedViewController.h; sourceTree = "<group>"; };
 		41638057178D3FAB00D4292E /* FMCFeedViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMCFeedViewController.m; sourceTree = "<group>"; };
-		4163813A17936E1B00D4292E /* bandaid.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = bandaid.png; path = ../../../../Downloads/bandaid.png; sourceTree = "<group>"; };
-		4163813C1793B06E00D4292E /* Post.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Post.h; sourceTree = "<group>"; };
-		4163813D1793B06E00D4292E /* Post.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Post.m; sourceTree = "<group>"; };
-		4163813F1794DF1800D4292E /* fixmycampus.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = fixmycampus.jpg; path = ../../../../Downloads/fixmycampus.jpg; sourceTree = "<group>"; };
+		4163813C1793B06E00D4292E /* Post.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Post.h; path = FMC/Post.h; sourceTree = "<group>"; };
+		4163813D1793B06E00D4292E /* Post.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Post.m; path = FMC/Post.m; sourceTree = "<group>"; };
+		416381411794E66100D4292E /* FMCWelcome.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = FMCWelcome.jpg; sourceTree = "<group>"; };
+		416381431794F99C00D4292E /* Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Icon.png; path = ../Icon.png; sourceTree = "<group>"; };
+		416381451794FC0E00D4292E /* Icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon@2x.png"; sourceTree = "<group>"; };
+		416381471795004600D4292E /* 16.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 16.png; sourceTree = "<group>"; };
+		416381491795013C00D4292E /* Icon-40.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-40.png"; sourceTree = "<group>"; };
+		4163814B1795016400D4292E /* Icon-36.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-36.png"; sourceTree = "<group>"; };
+		4163814E17950BF200D4292E /* FMCFeedCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMCFeedCell.h; sourceTree = "<group>"; };
+		4163814F17950BF200D4292E /* FMCFeedCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMCFeedCell.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -95,6 +106,7 @@
 		41638010178BBDB400D4292E = {
 			isa = PBXGroup;
 			children = (
+				4163814D17950BC600D4292E /* Model */,
 				41638022178BBDB400D4292E /* FMC */,
 				4163801B178BBDB400D4292E /* Frameworks */,
 				4163801A178BBDB400D4292E /* Products */,
@@ -129,8 +141,8 @@
 		41638022178BBDB400D4292E /* FMC */ = {
 			isa = PBXGroup;
 			children = (
-				4163813F1794DF1800D4292E /* fixmycampus.jpg */,
-				4163813A17936E1B00D4292E /* bandaid.png */,
+				4163814E17950BF200D4292E /* FMCFeedCell.h */,
+				4163814F17950BF200D4292E /* FMCFeedCell.m */,
 				4163802B178BBDB400D4292E /* FMCAppDelegate.h */,
 				4163802C178BBDB400D4292E /* FMCAppDelegate.m */,
 				41638053178D37E900D4292E /* FMCPostViewController.h */,
@@ -138,8 +150,6 @@
 				41638034178BBDB400D4292E /* MainStoryboard.storyboard */,
 				41638056178D3FAA00D4292E /* FMCFeedViewController.h */,
 				41638057178D3FAB00D4292E /* FMCFeedViewController.m */,
-				4163813C1793B06E00D4292E /* Post.h */,
-				4163813D1793B06E00D4292E /* Post.m */,
 				4163804D178BC01E00D4292E /* FMCLoginViewController.h */,
 				4163804E178BC01E00D4292E /* FMCLoginViewController.m */,
 				41638050178D2E6800D4292E /* FMCMapViewController.h */,
@@ -154,6 +164,12 @@
 		41638023178BBDB400D4292E /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				4163814B1795016400D4292E /* Icon-36.png */,
+				416381491795013C00D4292E /* Icon-40.png */,
+				416381471795004600D4292E /* 16.png */,
+				416381411794E66100D4292E /* FMCWelcome.jpg */,
+				416381451794FC0E00D4292E /* Icon@2x.png */,
+				416381431794F99C00D4292E /* Icon.png */,
 				41638024178BBDB400D4292E /* FMC-Info.plist */,
 				41638025178BBDB400D4292E /* InfoPlist.strings */,
 				41638028178BBDB400D4292E /* main.m */,
@@ -163,6 +179,15 @@
 				41638032178BBDB400D4292E /* Default-568h@2x.png */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		4163814D17950BC600D4292E /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				4163813C1793B06E00D4292E /* Post.h */,
+				4163813D1793B06E00D4292E /* Post.m */,
+			);
+			name = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -223,8 +248,12 @@
 				41638033178BBDB400D4292E /* Default-568h@2x.png in Resources */,
 				41638036178BBDB400D4292E /* MainStoryboard.storyboard in Resources */,
 				4163804C178BBE8300D4292E /* FacebookSDKResources.bundle in Resources */,
-				4163813B17936E1B00D4292E /* bandaid.png in Resources */,
-				416381401794DF1800D4292E /* fixmycampus.jpg in Resources */,
+				416381421794E66200D4292E /* FMCWelcome.jpg in Resources */,
+				416381441794F99C00D4292E /* Icon.png in Resources */,
+				416381461794FC0E00D4292E /* Icon@2x.png in Resources */,
+				416381481795004600D4292E /* 16.png in Resources */,
+				4163814A1795013C00D4292E /* Icon-40.png in Resources */,
+				4163814C1795016400D4292E /* Icon-36.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -243,6 +272,7 @@
 				41638055178D37EA00D4292E /* FMCPostViewController.m in Sources */,
 				41638058178D3FAB00D4292E /* FMCFeedViewController.m in Sources */,
 				4163813E1793B06E00D4292E /* Post.m in Sources */,
+				4163815017950BF200D4292E /* FMCFeedCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
