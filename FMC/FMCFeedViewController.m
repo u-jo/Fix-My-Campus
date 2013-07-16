@@ -34,6 +34,35 @@
     return 1;
 }
 
+- (void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    FMCFeedCell *feedCell = (FMCFeedCell *)cell;
+    Post *post = self.postsArray[indexPath.row];
+    feedCell.userProfilePictureView.image = post.image;
+    if (!post.image) {
+        [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:YES];
+        [FBRequestConnection startWithGraphPath:[NSString stringWithFormat:@"%@?fields=picture",post.postUserID] completionHandler:^(FBRequestConnection *connection, id result, NSError *error) {
+            if (!error) {
+                dispatch_queue_t photoQueue = dispatch_queue_create("photoQueue", nil);
+                dispatch_async(photoQueue, ^{
+                    NSURL *url = [NSURL URLWithString:result[@"picture"][@"data"][@"url"]];
+                    NSData *data = [NSData dataWithContentsOfURL:url];
+                    dispatch_async(dispatch_get_main_queue(), ^{
+                        UIImage *image = [UIImage imageWithData:data];
+                        post.image = image;
+                        self.postsArray[indexPath.row] = post;
+                        feedCell.userProfilePictureView.image = image;
+                        [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
+                      //  [self.tableView reloadData];
+                    });
+                });
+            } else {
+                NSLog(@"%@",[error description]);
+            }
+        }];
+    }
+}
+
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Feed Post" forIndexPath:indexPath];
@@ -63,7 +92,8 @@
                         self.postsArray[indexPath.row] = post;
                         feedCell.userProfilePictureView.image = image;
                         [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
-                        [self.tableView reloadData];
+                        [feedCell setNeedsDisplay];
+                 //       [self.tableView reloadData];
                     });
                 });
             } else {
@@ -88,6 +118,8 @@
     [refreshControl addTarget:self action:@selector(requestForFeed) forControlEvents:UIControlEventValueChanged];
     self.refreshControl = refreshControl;
     [self.tableView addSubview:self.refreshControl];
+    
+    NSLog(@"%u Load",[self.refreshControl state]);
     self.firstLoad = NO;
 }
 
@@ -103,11 +135,11 @@
     [self createGraphObject];
     [self.tableView reloadData];
 }
-
+#define INITIAL_LIMIT @"15"
 - (void)createGraphObject
 {
     NSString *request = [NSString stringWithFormat:@"/221311464682696/feed/"];
-    NSDictionary *params = @{@"access_token" : self.accessToken, @"limit":@"15"};
+    NSDictionary *params = @{@"access_token" : self.accessToken, @"limit":INITIAL_LIMIT};
     [FBRequestConnection startWithGraphPath:request parameters:params HTTPMethod:@"GET" completionHandler:^(FBRequestConnection *connection, id result, NSError *error) {
         if (!error) {
             if ([result isKindOfClass:[FBGraphObject class]]) {
@@ -116,8 +148,11 @@
                 [self createPostsArrayWith:self.graphObject];
                 [self.refreshControl endRefreshing];
                 [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
+                NSLog(@"%u",[self.refreshControl state]);
             }
         } else {
+            UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"Error!" message:@"We could not access Fix My Campus" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
+            [alert show];
             NSLog(@"error");
         }
     
@@ -146,6 +181,7 @@
     }
     [addArray addObjectsFromArray:self.postsArray];
     self.postsArray = addArray;
+    
 }
 
 @synthesize postsArray = _postsArray;
@@ -170,12 +206,18 @@
 - (void)viewDidAppear:(BOOL)animated
 {
     [super viewDidAppear:animated];
-    [FBSession.activeSession requestNewReadPermissions:@[@"user_groups"] completionHandler:^(FBSession *session, NSError *error) {
-        if (!error) {
-            [self.refreshControl beginRefreshing];
-            [self requestForFeed];
-        }
-    }];
+    if (!self.firstLoad) {
+        [self.refreshControl beginRefreshing];
+        [self requestForFeed];
+    } else {
+        [self.refreshControl beginRefreshing];
+        [FBSession.activeSession requestNewReadPermissions:@[@"user_groups"] completionHandler:^(FBSession *session, NSError *error) {
+            if (!error) {
+                [self requestForFeed];
+                self.firstLoad = YES; 
+            }
+        }];
+    }
     
 }
 @end
