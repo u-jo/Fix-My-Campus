@@ -17,4 +17,5 @@
 @property (strong, nonatomic) NSString *comments;
 @property (strong, nonatomic) UIImage *image;
 - (id)initWithDictionary:(NSDictionary *)dictionary;
+@property (strong, nonatomic) NSString *postID; 
 @end

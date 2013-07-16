@@ -16,6 +16,7 @@
 #define POST_LIKE_COUNT @"postLikeCount"
 #define COMMENTS_COUNT @"commentsCount"
 #define IMAGE @"imageOfUser"
+#define POST_ID @"postID"
 
 - (id)initWithDictionary:(NSDictionary *)dictionary
 {
@@ -29,6 +30,7 @@
         self.postLikeCount = dictionary[POST_LIKE_COUNT];
         self.comments = dictionary[COMMENTS_COUNT];
         self.image = dictionary[IMAGE];
+        self.postID = dictionary[POST_ID];
     }
     return self; 
 }
