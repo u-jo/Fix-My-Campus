@@ -18,6 +18,10 @@
 @property (strong, nonatomic) IBOutlet UITableView *tableView;
 @property (strong, nonatomic) UIRefreshControl *refreshControl;
 @property (nonatomic) BOOL firstLoad;
+@property (nonatomic) BOOL loading;
+@property (nonatomic) int count;
+@property (nonatomic) int offset;
+@property (nonatomic) BOOL triggeredByScrollingToBottom;
 @end
 
 @implementation FMCFeedViewController
@@ -110,36 +114,40 @@
 }
 
 
-
+#define COUNTER 40;
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    self.count = COUNTER;
     UIRefreshControl *refreshControl = [[UIRefreshControl alloc]init];
     [refreshControl addTarget:self action:@selector(requestForFeed) forControlEvents:UIControlEventValueChanged];
     self.refreshControl = refreshControl;
     [self.tableView addSubview:self.refreshControl];
     
-    NSLog(@"%u Load",[self.refreshControl state]);
+   
     self.firstLoad = NO;
 }
 
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
+    [self.tableView scrollRectToVisible:CGRectMake(0, 0, 1, 1) animated:NO];
 }
 
 - (IBAction)requestForFeed
 {
     
+    self.loading = YES;
     [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:YES];
     [self createGraphObject];
     [self.tableView reloadData];
+    
 }
-#define INITIAL_LIMIT @"15"
+
 - (void)createGraphObject
 {
-    NSString *request = [NSString stringWithFormat:@"/221311464682696/feed/"];
-    NSDictionary *params = @{@"access_token" : self.accessToken, @"limit":INITIAL_LIMIT};
+    NSString *request = [NSString stringWithFormat:@"/347519535355326/feed/"];
+    NSDictionary *params = @{@"access_token" : self.accessToken, @"limit":[NSString stringWithFormat:@"%d",self.count] };
     [FBRequestConnection startWithGraphPath:request parameters:params HTTPMethod:@"GET" completionHandler:^(FBRequestConnection *connection, id result, NSError *error) {
         if (!error) {
             if ([result isKindOfClass:[FBGraphObject class]]) {
@@ -148,7 +156,8 @@
                 [self createPostsArrayWith:self.graphObject];
                 [self.refreshControl endRefreshing];
                 [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
-                NSLog(@"%u",[self.refreshControl state]);
+                self.loading = NO;
+                self.triggeredByScrollingToBottom = NO;
             }
         } else {
             UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"Error!" message:@"We could not access Fix My Campus" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
@@ -179,8 +188,14 @@
             [addArray addObject:newPost];
         }
     }
-    [addArray addObjectsFromArray:self.postsArray];
-    self.postsArray = addArray;
+    if (self.triggeredByScrollingToBottom) {
+        NSMutableArray *originalArray = self.postsArray;
+        [originalArray addObjectsFromArray:addArray];
+        self.postsArray = originalArray;
+    } else {
+        [addArray addObjectsFromArray:self.postsArray];
+        self.postsArray = addArray;
+    }
     
 }
 
@@ -210,6 +225,7 @@
         [self.refreshControl beginRefreshing];
         [self requestForFeed];
     } else {
+    //    [self.tableView scrollToRowAtIndexPath:[NSIndexPath indexPathForItem:0 inSection:0] atScrollPosition:UITableViewScrollPositionTop animated:YES];
         [self.refreshControl beginRefreshing];
         [FBSession.activeSession requestNewReadPermissions:@[@"user_groups"] completionHandler:^(FBSession *session, NSError *error) {
             if (!error) {
@@ -220,4 +236,29 @@
     }
     
 }
+
+#define THRESHOLD 20
+-(void)scrollViewDidScroll:(UIScrollView *)scrollView
+{
+    if ([self.postsArray count] > THRESHOLD) {
+        CGFloat height = scrollView.frame.size.height;
+         
+        CGFloat contentYoffset = scrollView.contentOffset.y;
+      //  NSLog(@"Content Y Offset: %f",contentYoffset);
+        
+        CGFloat distanceFromBottom = scrollView.contentSize.height - contentYoffset;
+     //   NSLog(@"Distance From Bottom: %f        Height: %f\n",distanceFromBottom, height);
+        if (distanceFromBottom < height * 3 && self.loading == NO)
+        {
+            NSLog(@"loading");
+            self.triggeredByScrollingToBottom = YES;
+            self.count += 8;
+            [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:YES];
+            [self requestForFeed];
+           
+        }
+    }
+}
+
+
 @end
