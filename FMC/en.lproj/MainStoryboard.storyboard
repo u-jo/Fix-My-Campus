@@ -203,7 +203,16 @@
                     <view key="view" contentMode="scaleToFill" id="n3G-K2-26l">
                         <rect key="frame" x="0.0" y="64" width="320" height="367"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="hybrid" translatesAutoresizingMaskIntoConstraints="NO" id="rJG-m8-ceb"/>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="rJG-m8-ceb" firstAttribute="bottom" secondItem="n3G-K2-26l" secondAttribute="bottom" type="default" id="1fC-4J-u3A"/>
+                            <constraint firstItem="rJG-m8-ceb" firstAttribute="top" secondItem="n3G-K2-26l" secondAttribute="top" type="default" id="6Q0-q7-4Pr"/>
+                            <constraint firstItem="rJG-m8-ceb" firstAttribute="trailing" secondItem="n3G-K2-26l" secondAttribute="trailing" type="default" id="xM4-Xo-Cc4"/>
+                            <constraint firstItem="rJG-m8-ceb" firstAttribute="leading" secondItem="n3G-K2-26l" secondAttribute="leading" type="default" id="zzb-nW-zh8"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="y6Q-Ba-xCm">
                         <barButtonItem key="rightBarButtonItem" title="Log Out" id="jlJ-dh-v7o">
@@ -296,6 +305,50 @@
         <image name="FMCWelcome.jpg" width="822" height="215"/>
         <image name="Icon-36.png" width="36" height="36"/>
     </resources>
+    <classes>
+        <class className="FBLoginView" superclassName="UIView">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/FBLoginView.h"/>
+            <relationships>
+                <relationship kind="outlet" name="delegate"/>
+            </relationships>
+        </class>
+        <class className="FMCFeedCell" superclassName="UITableViewCell">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/FMCFeedCell.h"/>
+            <relationships>
+                <relationship kind="outlet" name="addDateLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="addedByLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="comment" candidateClass="UITextView"/>
+                <relationship kind="outlet" name="userProfilePictureView" candidateClass="FMCProfilePictureFeedView"/>
+            </relationships>
+        </class>
+        <class className="FMCFeedViewController" superclassName="FMCViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/FMCFeedViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="tableView" candidateClass="UITableView"/>
+            </relationships>
+        </class>
+        <class className="FMCLoginViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/FMCLoginViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="loginView" candidateClass="FBLoginView"/>
+            </relationships>
+        </class>
+        <class className="FMCMapViewController" superclassName="FMCViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/FMCMapViewController.h"/>
+        </class>
+        <class className="FMCPostViewController" superclassName="FMCViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/FMCPostViewController.h"/>
+        </class>
+        <class className="FMCProfilePictureFeedView" superclassName="UIView">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/FMCProfilePictureFeedView.h"/>
+        </class>
+        <class className="FMCViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/FMCViewController.h"/>
+        </class>
+        <class className="NSLayoutConstraint" superclassName="NSObject">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/NSLayoutConstraint.h"/>
+        </class>
+    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>

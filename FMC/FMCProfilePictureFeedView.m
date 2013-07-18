@@ -22,7 +22,7 @@
 #define CORNER_RADIUS 14.0
 - (void)drawRect:(CGRect)rect
 {
-    UIBezierPath *roundedRect = [UIBezierPath bezierPathWithRoundedRect:self.bounds cornerRadius:CORNER_RADIUS];
+    UIBezierPath *roundedRect = [UIBezierPath bezierPathWithOvalInRect:self.bounds];
     
     [roundedRect addClip];
     
