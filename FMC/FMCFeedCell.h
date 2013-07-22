@@ -13,6 +13,8 @@
 @property (strong, nonatomic) IBOutlet UILabel *addedByLabel;
 @property (strong, nonatomic) IBOutlet UITextView *comment;
 @property (strong, nonatomic) IBOutlet FMCProfilePictureFeedView *userProfilePictureView;
+@property (strong, nonatomic) IBOutlet UILabel *likeCount;
 
-
+@property (strong, nonatomic) IBOutlet UILabel *commentCount;
+@property (strong, nonatomic) NSString *postID; 
 @end

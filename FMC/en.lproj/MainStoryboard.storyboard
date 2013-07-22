@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="3084" systemVersion="12E55" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="KA6-Gu-dIC">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="3084" systemVersion="12A269" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="KA6-Gu-dIC">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="2083"/>
     </dependencies>
@@ -53,14 +53,14 @@
                         <rect key="frame" x="0.0" y="64" width="320" height="367"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="102" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="5kZ-lp-Ubz">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="119" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="5kZ-lp-Ubz">
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell opaque="NO" alpha="0.60000000000000009" contentMode="scaleToFill" selectionStyle="blue" indentationWidth="10" reuseIdentifier="Feed Post" rowHeight="102" id="Aw7-Ah-2Na" customClass="FMCFeedCell">
-                                        <rect key="frame" x="0.0" y="22" width="320" height="102"/>
+                                    <tableViewCell opaque="NO" alpha="0.60000000000000009" contentMode="scaleToFill" selectionStyle="blue" indentationWidth="10" reuseIdentifier="Feed Post" rowHeight="119" id="Aw7-Ah-2Na" customClass="FMCFeedCell">
+                                        <rect key="frame" x="0.0" y="22" width="320" height="119"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                            <rect key="frame" x="0.0" y="0.0" width="320" height="101"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="118"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Okm-OS-Q9w" customClass="FMCProfilePictureFeedView">
@@ -71,15 +71,15 @@
                                                     </subviews>
                                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                     <constraints>
+                                                        <constraint firstAttribute="trailing" secondItem="Uw0-3m-Pjr" secondAttribute="trailing" constant="65" id="8HT-Al-gwh"/>
                                                         <constraint firstItem="Uw0-3m-Pjr" firstAttribute="top" secondItem="Okm-OS-Q9w" secondAttribute="top" type="default" id="D8p-t5-nuy"/>
                                                         <constraint firstItem="Uw0-3m-Pjr" firstAttribute="leading" secondItem="Okm-OS-Q9w" secondAttribute="leading" type="default" id="KC9-C4-nr9"/>
-                                                        <constraint firstAttribute="trailing" secondItem="Uw0-3m-Pjr" secondAttribute="trailing" constant="60" id="dHo-9P-R6i"/>
-                                                        <constraint firstItem="Uw0-3m-Pjr" firstAttribute="centerY" secondItem="Okm-OS-Q9w" secondAttribute="centerY" type="default" id="xLE-y1-ylw"/>
+                                                        <constraint firstAttribute="bottom" secondItem="Uw0-3m-Pjr" secondAttribute="bottom" constant="-12" id="L3x-i1-auE"/>
                                                     </constraints>
                                                 </view>
                                                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZLr-yT-4Oh">
                                                     <constraints>
-                                                        <constraint firstAttribute="width" constant="152" id="8lG-wI-I44"/>
+                                                        <constraint firstAttribute="width" constant="216" id="jaN-or-Thg"/>
                                                     </constraints>
                                                     <attributedString key="attributedText">
                                                         <fragment content="Label">
@@ -92,58 +92,77 @@
                                                     </attributedString>
                                                     <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 </label>
-                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6eD-mU-iVY">
-                                                    <constraints>
-                                                        <constraint firstAttribute="width" constant="83" id="XF0-ta-1RA"/>
-                                                    </constraints>
-                                                    <attributedString key="attributedText">
-                                                        <fragment content="Added">
-                                                            <attributes>
-                                                                <color key="NSColor" cocoaTouchSystemColor="darkTextColor"/>
-                                                                <font key="NSFont" size="12" name="LucidaGrande"/>
-                                                                <paragraphStyle key="NSParagraphStyle" alignment="right" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
-                                                            </attributes>
-                                                        </fragment>
-                                                    </attributedString>
-                                                    <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                </label>
                                                 <textView clipsSubviews="YES" multipleTouchEnabled="YES" userInteractionEnabled="NO" contentMode="scaleToFill" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" editable="NO" usesAttributedText="YES" translatesAutoresizingMaskIntoConstraints="NO" id="1mO-6L-w86">
                                                     <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="width" constant="233" id="83k-Pl-A46"/>
+                                                        <constraint firstAttribute="width" constant="228" id="5dy-M5-3y6"/>
                                                         <constraint firstAttribute="height" constant="67" id="bls-Wb-EMk"/>
                                                     </constraints>
                                                     <attributedString key="attributedText">
                                                         <fragment>
                                                             <string key="content">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation </string>
                                                             <attributes>
-                                                                <font key="NSFont" size="11" name="Helvetica"/>
+                                                                <font key="NSFont" size="11" name="Geneva"/>
+                                                                <font key="NSOriginalFont" size="11" name="Geneva"/>
                                                                 <paragraphStyle key="NSParagraphStyle" alignment="justified" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
                                                             </attributes>
                                                         </fragment>
                                                     </attributedString>
                                                     <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                                 </textView>
+                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="54" translatesAutoresizingMaskIntoConstraints="NO" id="0rJ-yj-cML">
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="54" id="dSj-gf-Jdd"/>
+                                                    </constraints>
+                                                    <attributedString key="attributedText">
+                                                        <fragment content="Likes">
+                                                            <attributes>
+                                                                <color key="NSColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                                <font key="NSFont" size="10" name="Helvetica"/>
+                                                                <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
+                                                            </attributes>
+                                                        </fragment>
+                                                    </attributedString>
+                                                    <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                </label>
+                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="108" translatesAutoresizingMaskIntoConstraints="NO" id="C94-wN-Ll8">
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="108" id="cAs-M8-ocj"/>
+                                                    </constraints>
+                                                    <attributedString key="attributedText">
+                                                        <fragment content="Comments">
+                                                            <attributes>
+                                                                <color key="NSColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                                <font key="NSFont" size="10" name="Helvetica"/>
+                                                                <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
+                                                            </attributes>
+                                                        </fragment>
+                                                    </attributedString>
+                                                    <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                </label>
                                             </subviews>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         </view>
-                                        <color key="backgroundColor" red="0.40000000000000002" green="0.59999999999999998" blue="0.80000000000000004" alpha="1" colorSpace="calibratedRGB"/>
+                                        <gestureRecognizers/>
                                         <constraints>
-                                            <constraint firstAttribute="bottom" secondItem="Okm-OS-Q9w" secondAttribute="bottom" constant="32" id="GJq-lb-7Pe"/>
-                                            <constraint firstItem="6eD-mU-iVY" firstAttribute="baseline" secondItem="ZLr-yT-4Oh" secondAttribute="baseline" type="default" id="R34-Sd-HJA"/>
-                                            <constraint firstItem="Okm-OS-Q9w" firstAttribute="top" secondItem="Aw7-Ah-2Na" secondAttribute="top" constant="10" id="UU3-X2-yFH"/>
-                                            <constraint firstItem="ZLr-yT-4Oh" firstAttribute="leading" secondItem="Aw7-Ah-2Na" secondAttribute="leading" constant="80" id="aoD-g6-Ob2"/>
-                                            <constraint firstItem="ZLr-yT-4Oh" firstAttribute="top" secondItem="Okm-OS-Q9w" secondAttribute="top" type="default" id="h56-ak-hSZ"/>
-                                            <constraint firstItem="Okm-OS-Q9w" firstAttribute="leading" secondItem="Aw7-Ah-2Na" secondAttribute="leading" constant="10" id="kCg-XD-w1P"/>
-                                            <constraint firstAttribute="trailing" secondItem="Okm-OS-Q9w" secondAttribute="trailing" constant="250" id="msq-Bc-FXv"/>
-                                            <constraint firstItem="1mO-6L-w86" firstAttribute="leading" secondItem="Aw7-Ah-2Na" secondAttribute="leading" constant="73" id="xZd-3X-AhP"/>
-                                            <constraint firstAttribute="trailing" secondItem="6eD-mU-iVY" secondAttribute="trailing" constant="20" type="default" id="xvr-q0-O3o"/>
-                                            <constraint firstItem="1mO-6L-w86" firstAttribute="top" secondItem="Aw7-Ah-2Na" secondAttribute="top" constant="24" id="yzy-2n-SIE"/>
+                                            <constraint firstAttribute="trailing" secondItem="Okm-OS-Q9w" secondAttribute="trailing" constant="250" id="3G1-e6-Gkw"/>
+                                            <constraint firstItem="1mO-6L-w86" firstAttribute="leading" secondItem="Aw7-Ah-2Na" secondAttribute="leading" constant="76" id="7fO-eI-moO"/>
+                                            <constraint firstAttribute="trailing" secondItem="C94-wN-Ll8" secondAttribute="trailing" constant="50" id="Cyh-DZ-tim"/>
+                                            <constraint firstAttribute="trailing" secondItem="ZLr-yT-4Oh" secondAttribute="trailing" constant="20" type="default" id="N3g-hY-ylq"/>
+                                            <constraint firstItem="1mO-6L-w86" firstAttribute="top" secondItem="Aw7-Ah-2Na" secondAttribute="top" constant="24" id="NwF-kx-DOR"/>
+                                            <constraint firstAttribute="bottom" secondItem="Okm-OS-Q9w" secondAttribute="bottom" constant="49" id="Q7L-Rx-g1m"/>
+                                            <constraint firstItem="Okm-OS-Q9w" firstAttribute="leading" secondItem="Aw7-Ah-2Na" secondAttribute="leading" constant="5" id="ZDr-6k-r5l"/>
+                                            <constraint firstItem="Okm-OS-Q9w" firstAttribute="top" secondItem="Aw7-Ah-2Na" secondAttribute="top" constant="5" id="aJs-Li-ceV"/>
+                                            <constraint firstItem="0rJ-yj-cML" firstAttribute="leading" secondItem="ZLr-yT-4Oh" secondAttribute="leading" type="default" id="e6D-Ku-WWj"/>
+                                            <constraint firstAttribute="bottom" secondItem="0rJ-yj-cML" secondAttribute="bottom" constant="5" id="lcn-1m-g27"/>
+                                            <constraint firstItem="0rJ-yj-cML" firstAttribute="baseline" secondItem="C94-wN-Ll8" secondAttribute="baseline" type="default" id="nGy-3J-hbv"/>
+                                            <constraint firstItem="ZLr-yT-4Oh" firstAttribute="top" secondItem="Aw7-Ah-2Na" secondAttribute="top" constant="10" id="nuO-a1-oiD"/>
                                         </constraints>
                                         <connections>
-                                            <outlet property="addDateLabel" destination="6eD-mU-iVY" id="eNy-U9-OEY"/>
                                             <outlet property="addedByLabel" destination="ZLr-yT-4Oh" id="JIE-49-yfb"/>
                                             <outlet property="comment" destination="1mO-6L-w86" id="XIi-c4-QhU"/>
+                                            <outlet property="commentCount" destination="C94-wN-Ll8" id="I1g-OE-1jA"/>
+                                            <outlet property="likeCount" destination="0rJ-yj-cML" id="lPk-QH-Mng"/>
                                             <outlet property="userProfilePictureView" destination="Okm-OS-Q9w" id="xOH-Aq-FI5"/>
                                         </connections>
                                     </tableViewCell>
@@ -174,6 +193,7 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="MHF-ZU-qEF" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <panGestureRecognizer minimumNumberOfTouches="1" id="eNx-Tj-k5f"/>
             </objects>
             <point key="canvasLocation" x="1169" y="242"/>
         </scene>
@@ -230,7 +250,7 @@
         <scene sceneID="FuF-0c-Wme">
             <objects>
                 <navigationController id="FZE-M5-TVX" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Feed" id="a7n-Yl-ASN"/>
+                    <tabBarItem key="tabBarItem" title="Feed" image="Icon-36.png" id="a7n-Yl-ASN"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="68c-u2-Cxx">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -318,6 +338,8 @@
                 <relationship kind="outlet" name="addDateLabel" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="addedByLabel" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="comment" candidateClass="UITextView"/>
+                <relationship kind="outlet" name="commentCount" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="likeCount" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="userProfilePictureView" candidateClass="FMCProfilePictureFeedView"/>
             </relationships>
         </class>

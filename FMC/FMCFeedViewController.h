@@ -8,6 +8,6 @@
 
 #import "FMCViewController.h"
 
-@interface FMCFeedViewController : FMCViewController <UITableViewDelegate, UITableViewDataSource>
+@interface FMCFeedViewController : FMCViewController <UITableViewDelegate, UITableViewDataSource, UIGestureRecognizerDelegate>
 
 @end

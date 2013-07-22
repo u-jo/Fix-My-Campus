@@ -26,6 +26,7 @@
 	<key>UIAppFonts</key>
 	<array>
 		<string>Lucida Grande-Bold.ttf</string>
+		<string>Lucida Grande.ttf</string>
 	</array>
 	<key>CFBundleInfoDictionaryVersion</key>
 	<string>6.0</string>

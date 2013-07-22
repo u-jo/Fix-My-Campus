@@ -40,9 +40,12 @@
 
 - (void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    cell.backgroundColor = [UIColor clearColor];
+    cell.contentView.backgroundColor = [UIColor colorWithRed:245 green:245 blue:20 alpha:0.5];
     FMCFeedCell *feedCell = (FMCFeedCell *)cell;
     Post *post = self.postsArray[indexPath.row];
     feedCell.userProfilePictureView.image = post.image;
+    feedCell.postID = post.postID;
     if (!post.image) {
         [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:YES];
         [FBRequestConnection startWithGraphPath:[NSString stringWithFormat:@"%@?fields=picture",post.postUserID] completionHandler:^(FBRequestConnection *connection, id result, NSError *error) {
@@ -67,24 +70,40 @@
     }
 }
 
+
+
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Feed Post" forIndexPath:indexPath];
+    
     FMCFeedCell *feedCell = (FMCFeedCell *)cell;
     Post *post = self.postsArray[indexPath.row];
-    
-    UIFont *lucida = feedCell.addedByLabel.font;
-    NSDictionary *attributesForNameLabel = @{NSFontAttributeName : lucida};
+    UIFont *nameFont = [UIFont fontWithName:@"LucidaGrande-Bold" size:12.0];
+    UIFont *commentFont = [UIFont fontWithName:@"LucidaGrande" size:12.0];
+    UIFont *countFont = [UIFont fontWithName:@"LucidaGrande" size:11.0];
+    NSDictionary *attributesForNameLabel = @{NSFontAttributeName : nameFont};
+    NSDictionary *attributesForCommentLabel = @{NSFontAttributeName : commentFont};
+    NSDictionary *attributesForCountLabel = @{NSFontAttributeName : countFont};
     NSAttributedString *userName = [[NSAttributedString alloc] initWithString:post.postUserName attributes:attributesForNameLabel];
-    NSAttributedString *message = [[NSAttributedString alloc] initWithString:post.postMessage attributes:attributesForNameLabel];
+    NSAttributedString *message = [[NSAttributedString alloc] initWithString:post.postMessage attributes:attributesForCommentLabel];
+    NSAttributedString *likeCount = [[NSAttributedString alloc] initWithString:[NSString stringWithFormat:@"%@ Likes",post.postLikeCount] attributes:attributesForCountLabel];
+    NSAttributedString *commentCount = [[NSAttributedString alloc] initWithString:[NSString stringWithFormat:@"%@ Comments",post.comments] attributes:attributesForCountLabel];
     
     feedCell.userProfilePictureView.image = post.image;
+    
     feedCell.addedByLabel.attributedText = userName;
+    [feedCell.addDateLabel sizeToFit];
+    
     feedCell.comment.attributedText = message;
+    
+    feedCell.likeCount.attributedText = likeCount;
+    [feedCell.likeCount sizeToFit];
+    feedCell.commentCount.attributedText = commentCount;
+    [feedCell.commentCount sizeToFit];
     
     if (!post.image){
         [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:YES];
-        [FBRequestConnection startWithGraphPath:[NSString stringWithFormat:@"%@?fields=picture",post.postUserID] completionHandler:^(FBRequestConnection *connection, id result, NSError *error) {
+        [FBRequestConnection startWithGraphPath:[NSString stringWithFormat:@"%@?fields=picture&type=large",post.postUserID] completionHandler:^(FBRequestConnection *connection, id result, NSError *error) {
             if (!error) {
                 dispatch_queue_t photoQueue = dispatch_queue_create("photoQueue", nil);
                 dispatch_async(photoQueue, ^{
@@ -105,8 +124,45 @@
             }
         }];
     }
+    UISwipeGestureRecognizer *swipeRight = [[UISwipeGestureRecognizer alloc]initWithTarget:self action:@selector(likePost:)];
+    swipeRight.direction = UISwipeGestureRecognizerDirectionRight;
+    [feedCell addGestureRecognizer:swipeRight];
     return feedCell;
 }
+
+- (void)likePost:(UISwipeGestureRecognizer *)swipeRight
+{
+    CGPoint location = [swipeRight locationInView:self.tableView];
+    NSIndexPath *indexPath = [self.tableView indexPathForRowAtPoint:location];
+    UITableViewCell *cell = [self.tableView cellForRowAtIndexPath:indexPath];
+    [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:YES];
+    if ([cell isKindOfClass:[FMCFeedCell class]]) {
+        FMCFeedCell *feedCell = (FMCFeedCell *)cell;
+        NSLog(@"%@",feedCell.postID);
+        [FBRequestConnection startWithGraphPath:[NSString stringWithFormat:@"/%@/likes",feedCell.postID] parameters:nil HTTPMethod:@"POST" completionHandler:^(FBRequestConnection *connection, id result, NSError *error) {
+            [FBRequestConnection startWithGraphPath:[NSString stringWithFormat:@"/%@",feedCell.postID] completionHandler:^(FBRequestConnection *connection, id result, NSError *error) {
+                NSNumber *count = result[@"likes"][@"count"];
+                NSLog(@"yes1");
+                if (!count) {
+                    count = @(0);
+                }
+                NSLog(@"yes2");
+                if ([self.postsArray[indexPath.row] isKindOfClass:[Post class]]) {
+                    Post *post = self.postsArray[indexPath.row];
+                    post.postLikeCount = [NSString stringWithFormat:@"%@",count];
+                    self.postsArray[indexPath.row] = post;
+                    UIFont *countFont = [UIFont fontWithName:@"LucidaGrande" size:11.0];
+                    feedCell.likeCount.attributedText = [[NSAttributedString alloc] initWithString:[NSString stringWithFormat:@"%@ Likes", post.postLikeCount] attributes:@{NSFontAttributeName : countFont}];
+                    NSLog(@"yes3");
+                    [feedCell.likeCount setNeedsDisplay];
+                }
+                [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
+            }]; 
+        }];
+        
+    }
+}
+
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
@@ -123,9 +179,6 @@
     [refreshControl addTarget:self action:@selector(requestForFeed) forControlEvents:UIControlEventValueChanged];
     self.refreshControl = refreshControl;
     [self.tableView addSubview:self.refreshControl];
-    
-   
-    self.firstLoad = NO;
 }
 
 - (void)viewWillAppear:(BOOL)animated
@@ -146,7 +199,7 @@
 
 - (void)createGraphObject
 {
-    NSString *request = [NSString stringWithFormat:@"/347519535355326/feed/"];
+    NSString *request = [NSString stringWithFormat:@"/221311464682696/feed/"];
     NSDictionary *params = @{@"access_token" : self.accessToken, @"limit":[NSString stringWithFormat:@"%d",self.count] };
     [FBRequestConnection startWithGraphPath:request parameters:params HTTPMethod:@"GET" completionHandler:^(FBRequestConnection *connection, id result, NSError *error) {
         if (!error) {
@@ -221,20 +274,17 @@
 - (void)viewDidAppear:(BOOL)animated
 {
     [super viewDidAppear:animated];
-    if (!self.firstLoad) {
-        [self.refreshControl beginRefreshing];
-        [self requestForFeed];
-    } else {
+   
     //    [self.tableView scrollToRowAtIndexPath:[NSIndexPath indexPathForItem:0 inSection:0] atScrollPosition:UITableViewScrollPositionTop animated:YES];
-        [self.refreshControl beginRefreshing];
-        [FBSession.activeSession requestNewReadPermissions:@[@"user_groups"] completionHandler:^(FBSession *session, NSError *error) {
+    [self.refreshControl beginRefreshing];
+    [FBSession.activeSession requestNewReadPermissions:@[@"user_groups"] completionHandler:^(FBSession *session, NSError *error) {
             if (!error) {
-                [self requestForFeed];
-                self.firstLoad = YES; 
+                [FBSession.activeSession requestNewPublishPermissions:@[@"publish_actions"] defaultAudience:FBSessionDefaultAudienceFriends completionHandler:^(FBSession *session, NSError *error) {
+                    [self requestForFeed];
+                }];
+                 
             }
-        }];
-    }
-    
+    }];
 }
 
 #define THRESHOLD 20

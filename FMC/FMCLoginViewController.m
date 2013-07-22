@@ -103,7 +103,7 @@
 
 - (FBLoginView *)loginView
 {
-    if (!_loginView) _loginView = [[FBLoginView alloc]initWithPublishPermissions:@[@"basic_info",@"user_groups"] defaultAudience:FBSessionDefaultAudienceFriends];
+    if (!_loginView) _loginView = [[FBLoginView alloc]initWithPublishPermissions:@[@"basic_info",@"user_groups, publish_actions"] defaultAudience:FBSessionDefaultAudienceFriends];
     return _loginView;
 }
 
