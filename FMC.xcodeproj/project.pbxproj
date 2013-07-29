@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4117FF42179F314C00E51472 /* bookshelf.png in Resources */ = {isa = PBXBuildFile; fileRef = 4117FF41179F314C00E51472 /* bookshelf.png */; };
+		4117FF5F17A47AAD00E51472 /* FMCFeedPostViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4117FF5E17A47AAD00E51472 /* FMCFeedPostViewController.m */; };
+		4117FF6117A4818200E51472 /* FMCLoginView.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 4117FF6017A4818200E51472 /* FMCLoginView.jpg */; };
+		4117FF6317A481FF00E51472 /* post.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 4117FF6217A481FF00E51472 /* post.jpg */; };
+		4117FF6517A4866A00E51472 /* postIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = 4117FF6417A4866A00E51472 /* postIcon.png */; };
 		4163801D178BBDB400D4292E /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4163801C178BBDB400D4292E /* UIKit.framework */; };
 		4163801F178BBDB400D4292E /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4163801E178BBDB400D4292E /* Foundation.framework */; };
 		41638021178BBDB400D4292E /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 41638020178BBDB400D4292E /* CoreGraphics.framework */; };
@@ -38,6 +43,7 @@
 		4163815317950DC200D4292E /* FMCProfilePictureFeedView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4163815217950DC100D4292E /* FMCProfilePictureFeedView.m */; };
 		417AED61179CC011001A3DDC /* Lucida Grande.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 417AED63179CC011001A3DDC /* Lucida Grande.ttf */; };
 		417AED64179CC014001A3DDC /* Lucida Grande-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 417AED66179CC014001A3DDC /* Lucida Grande-Bold.ttf */; };
+		419643CE17A61C620038CCDF /* FMCMainPostCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 419643CD17A61C620038CCDF /* FMCMainPostCell.m */; };
 		6086276D1795BC5D00BEA62C /* FacebookSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6086276C1795BC5D00BEA62C /* FacebookSDK.framework */; };
 		6086276F1795BC7100BEA62C /* FacebookSDKResources.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 6086276E1795BC7100BEA62C /* FacebookSDKResources.bundle */; };
 		60862771179712FA00BEA62C /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 60862770179712FA00BEA62C /* CoreLocation.framework */; };
@@ -45,6 +51,12 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		4117FF41179F314C00E51472 /* bookshelf.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bookshelf.png; sourceTree = "<group>"; };
+		4117FF5D17A47AAD00E51472 /* FMCFeedPostViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMCFeedPostViewController.h; sourceTree = "<group>"; };
+		4117FF5E17A47AAD00E51472 /* FMCFeedPostViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMCFeedPostViewController.m; sourceTree = "<group>"; };
+		4117FF6017A4818200E51472 /* FMCLoginView.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = FMCLoginView.jpg; sourceTree = "<group>"; };
+		4117FF6217A481FF00E51472 /* post.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = post.jpg; sourceTree = "<group>"; };
+		4117FF6417A4866A00E51472 /* postIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = postIcon.png; sourceTree = "<group>"; };
 		41638019178BBDB400D4292E /* FMC.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FMC.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4163801C178BBDB400D4292E /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		4163801E178BBDB400D4292E /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -88,6 +100,8 @@
 		4163815217950DC100D4292E /* FMCProfilePictureFeedView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMCProfilePictureFeedView.m; sourceTree = "<group>"; };
 		417AED62179CC011001A3DDC /* en */ = {isa = PBXFileReference; lastKnownFileType = file; name = en; path = "en.lproj/Lucida Grande.ttf"; sourceTree = "<group>"; };
 		417AED65179CC014001A3DDC /* en */ = {isa = PBXFileReference; lastKnownFileType = file; name = en; path = "en.lproj/Lucida Grande-Bold.ttf"; sourceTree = "<group>"; };
+		419643CC17A61C620038CCDF /* FMCMainPostCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMCMainPostCell.h; sourceTree = "<group>"; };
+		419643CD17A61C620038CCDF /* FMCMainPostCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMCMainPostCell.m; sourceTree = "<group>"; };
 		6086276C1795BC5D00BEA62C /* FacebookSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FacebookSDK.framework; sourceTree = "<group>"; };
 		6086276E1795BC7100BEA62C /* FacebookSDKResources.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = FacebookSDKResources.bundle; sourceTree = "<group>"; };
 		60862770179712FA00BEA62C /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
@@ -156,23 +170,15 @@
 		41638022178BBDB400D4292E /* FMC */ = {
 			isa = PBXGroup;
 			children = (
-				4163814E17950BF200D4292E /* FMCFeedCell.h */,
-				4163814F17950BF200D4292E /* FMCFeedCell.m */,
-				4163815117950DC100D4292E /* FMCProfilePictureFeedView.h */,
-				4163815217950DC100D4292E /* FMCProfilePictureFeedView.m */,
+				41638034178BBDB400D4292E /* MainStoryboard.storyboard */,
 				4163802B178BBDB400D4292E /* FMCAppDelegate.h */,
 				4163802C178BBDB400D4292E /* FMCAppDelegate.m */,
-				41638053178D37E900D4292E /* FMCPostViewController.h */,
-				41638054178D37EA00D4292E /* FMCPostViewController.m */,
-				41638034178BBDB400D4292E /* MainStoryboard.storyboard */,
-				41638056178D3FAA00D4292E /* FMCFeedViewController.h */,
-				41638057178D3FAB00D4292E /* FMCFeedViewController.m */,
-				4163804D178BC01E00D4292E /* FMCLoginViewController.h */,
-				4163804E178BC01E00D4292E /* FMCLoginViewController.m */,
-				41638050178D2E6800D4292E /* FMCMapViewController.h */,
-				41638051178D2E6800D4292E /* FMCMapViewController.m */,
 				41638037178BBDB400D4292E /* FMCViewController.h */,
 				41638038178BBDB400D4292E /* FMCViewController.m */,
+				419643CB17A48BF50038CCDF /* Map */,
+				419643CA17A48BE80038CCDF /* Login */,
+				419643C917A48BCF0038CCDF /* Post */,
+				419643C817A48BC80038CCDF /* Feed */,
 				41638023178BBDB400D4292E /* Supporting Files */,
 			);
 			path = FMC;
@@ -181,6 +187,10 @@
 		41638023178BBDB400D4292E /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				4117FF6417A4866A00E51472 /* postIcon.png */,
+				4117FF6217A481FF00E51472 /* post.jpg */,
+				4117FF6017A4818200E51472 /* FMCLoginView.jpg */,
+				4117FF41179F314C00E51472 /* bookshelf.png */,
 				417AED66179CC014001A3DDC /* Lucida Grande-Bold.ttf */,
 				417AED63179CC011001A3DDC /* Lucida Grande.ttf */,
 				4163814B1795016400D4292E /* Icon-36.png */,
@@ -207,6 +217,50 @@
 				4163813D1793B06E00D4292E /* Post.m */,
 			);
 			name = Model;
+			sourceTree = "<group>";
+		};
+		419643C817A48BC80038CCDF /* Feed */ = {
+			isa = PBXGroup;
+			children = (
+				419643CC17A61C620038CCDF /* FMCMainPostCell.h */,
+				419643CD17A61C620038CCDF /* FMCMainPostCell.m */,
+				41638056178D3FAA00D4292E /* FMCFeedViewController.h */,
+				41638057178D3FAB00D4292E /* FMCFeedViewController.m */,
+				4117FF5D17A47AAD00E51472 /* FMCFeedPostViewController.h */,
+				4117FF5E17A47AAD00E51472 /* FMCFeedPostViewController.m */,
+				4163814E17950BF200D4292E /* FMCFeedCell.h */,
+				4163814F17950BF200D4292E /* FMCFeedCell.m */,
+				4163815117950DC100D4292E /* FMCProfilePictureFeedView.h */,
+				4163815217950DC100D4292E /* FMCProfilePictureFeedView.m */,
+			);
+			name = Feed;
+			sourceTree = "<group>";
+		};
+		419643C917A48BCF0038CCDF /* Post */ = {
+			isa = PBXGroup;
+			children = (
+				41638053178D37E900D4292E /* FMCPostViewController.h */,
+				41638054178D37EA00D4292E /* FMCPostViewController.m */,
+			);
+			name = Post;
+			sourceTree = "<group>";
+		};
+		419643CA17A48BE80038CCDF /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				4163804D178BC01E00D4292E /* FMCLoginViewController.h */,
+				4163804E178BC01E00D4292E /* FMCLoginViewController.m */,
+			);
+			name = Login;
+			sourceTree = "<group>";
+		};
+		419643CB17A48BF50038CCDF /* Map */ = {
+			isa = PBXGroup;
+			children = (
+				41638050178D2E6800D4292E /* FMCMapViewController.h */,
+				41638051178D2E6800D4292E /* FMCMapViewController.m */,
+			);
+			name = Map;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -275,6 +329,10 @@
 				6086276F1795BC7100BEA62C /* FacebookSDKResources.bundle in Resources */,
 				417AED64179CC014001A3DDC /* Lucida Grande-Bold.ttf in Resources */,
 				417AED61179CC011001A3DDC /* Lucida Grande.ttf in Resources */,
+				4117FF42179F314C00E51472 /* bookshelf.png in Resources */,
+				4117FF6117A4818200E51472 /* FMCLoginView.jpg in Resources */,
+				4117FF6317A481FF00E51472 /* post.jpg in Resources */,
+				4117FF6517A4866A00E51472 /* postIcon.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -295,6 +353,8 @@
 				4163813E1793B06E00D4292E /* Post.m in Sources */,
 				4163815017950BF200D4292E /* FMCFeedCell.m in Sources */,
 				4163815317950DC200D4292E /* FMCProfilePictureFeedView.m in Sources */,
+				4117FF5F17A47AAD00E51472 /* FMCFeedPostViewController.m in Sources */,
+				419643CE17A61C620038CCDF /* FMCMainPostCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

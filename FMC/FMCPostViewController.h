@@ -8,6 +8,6 @@
 
 #import "FMCViewController.h"
 
-@interface FMCPostViewController : FMCViewController
+@interface FMCPostViewController : FMCViewController <UITableViewDataSource, UITableViewDelegate>
 
 @end

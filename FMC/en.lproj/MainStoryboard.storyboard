@@ -56,11 +56,11 @@
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="119" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="5kZ-lp-Ubz">
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell opaque="NO" alpha="0.60000000000000009" contentMode="scaleToFill" selectionStyle="blue" indentationWidth="10" reuseIdentifier="Feed Post" rowHeight="119" id="Aw7-Ah-2Na" customClass="FMCFeedCell">
+                                    <tableViewCell opaque="NO" alpha="0.60000000000000009" contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="Feed Post" rowHeight="119" id="Aw7-Ah-2Na" customClass="FMCFeedCell">
                                         <rect key="frame" x="0.0" y="22" width="320" height="119"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                            <rect key="frame" x="0.0" y="0.0" width="320" height="118"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="300" height="118"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Okm-OS-Q9w" customClass="FMCProfilePictureFeedView">
@@ -93,7 +93,6 @@
                                                     <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 </label>
                                                 <textView clipsSubviews="YES" multipleTouchEnabled="YES" userInteractionEnabled="NO" contentMode="scaleToFill" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" editable="NO" usesAttributedText="YES" translatesAutoresizingMaskIntoConstraints="NO" id="1mO-6L-w86">
-                                                    <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="228" id="5dy-M5-3y6"/>
                                                         <constraint firstAttribute="height" constant="67" id="bls-Wb-EMk"/>
@@ -145,18 +144,18 @@
                                         </view>
                                         <gestureRecognizers/>
                                         <constraints>
-                                            <constraint firstAttribute="trailing" secondItem="Okm-OS-Q9w" secondAttribute="trailing" constant="250" id="3G1-e6-Gkw"/>
+                                            <constraint firstAttribute="bottom" secondItem="Okm-OS-Q9w" secondAttribute="bottom" constant="44" id="0nz-qD-CnL"/>
+                                            <constraint firstItem="Okm-OS-Q9w" firstAttribute="top" secondItem="ZLr-yT-4Oh" secondAttribute="top" type="default" id="3Xl-Xr-65h"/>
                                             <constraint firstItem="1mO-6L-w86" firstAttribute="leading" secondItem="Aw7-Ah-2Na" secondAttribute="leading" constant="76" id="7fO-eI-moO"/>
+                                            <constraint firstItem="Okm-OS-Q9w" firstAttribute="leading" secondItem="Aw7-Ah-2Na" secondAttribute="leading" constant="10" id="9IN-te-iFm"/>
                                             <constraint firstAttribute="trailing" secondItem="C94-wN-Ll8" secondAttribute="trailing" constant="50" id="Cyh-DZ-tim"/>
+                                            <constraint firstItem="Okm-OS-Q9w" firstAttribute="top" secondItem="Aw7-Ah-2Na" secondAttribute="top" constant="10" id="IVD-KS-PX6"/>
                                             <constraint firstAttribute="trailing" secondItem="ZLr-yT-4Oh" secondAttribute="trailing" constant="20" type="default" id="N3g-hY-ylq"/>
                                             <constraint firstItem="1mO-6L-w86" firstAttribute="top" secondItem="Aw7-Ah-2Na" secondAttribute="top" constant="24" id="NwF-kx-DOR"/>
-                                            <constraint firstAttribute="bottom" secondItem="Okm-OS-Q9w" secondAttribute="bottom" constant="49" id="Q7L-Rx-g1m"/>
-                                            <constraint firstItem="Okm-OS-Q9w" firstAttribute="leading" secondItem="Aw7-Ah-2Na" secondAttribute="leading" constant="5" id="ZDr-6k-r5l"/>
-                                            <constraint firstItem="Okm-OS-Q9w" firstAttribute="top" secondItem="Aw7-Ah-2Na" secondAttribute="top" constant="5" id="aJs-Li-ceV"/>
+                                            <constraint firstAttribute="trailing" secondItem="Okm-OS-Q9w" secondAttribute="trailing" constant="245" id="aI3-5N-jh8"/>
                                             <constraint firstItem="0rJ-yj-cML" firstAttribute="leading" secondItem="ZLr-yT-4Oh" secondAttribute="leading" type="default" id="e6D-Ku-WWj"/>
                                             <constraint firstAttribute="bottom" secondItem="0rJ-yj-cML" secondAttribute="bottom" constant="5" id="lcn-1m-g27"/>
                                             <constraint firstItem="0rJ-yj-cML" firstAttribute="baseline" secondItem="C94-wN-Ll8" secondAttribute="baseline" type="default" id="nGy-3J-hbv"/>
-                                            <constraint firstItem="ZLr-yT-4Oh" firstAttribute="top" secondItem="Aw7-Ah-2Na" secondAttribute="top" constant="10" id="nuO-a1-oiD"/>
                                         </constraints>
                                         <connections>
                                             <outlet property="addedByLabel" destination="ZLr-yT-4Oh" id="JIE-49-yfb"/>
@@ -164,6 +163,7 @@
                                             <outlet property="commentCount" destination="C94-wN-Ll8" id="I1g-OE-1jA"/>
                                             <outlet property="likeCount" destination="0rJ-yj-cML" id="lPk-QH-Mng"/>
                                             <outlet property="userProfilePictureView" destination="Okm-OS-Q9w" id="xOH-Aq-FI5"/>
+                                            <segue destination="Jsb-Rs-Z86" kind="push" identifier="Indiv Post Segue" id="Nzi-hh-5Pl"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -197,11 +197,263 @@
             </objects>
             <point key="canvasLocation" x="1169" y="242"/>
         </scene>
+        <!--Feed Post View Controller-->
+        <scene sceneID="AWO-Hd-PPo">
+            <objects>
+                <viewController id="Jsb-Rs-Z86" customClass="FMCFeedPostViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="6xf-u5-toV">
+                        <rect key="frame" x="0.0" y="64" width="320" height="367"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="155" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="Dui-0z-ser">
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" indentationWidth="10" reuseIdentifier="Main Post" rowHeight="245" id="P8V-zf-LMo" customClass="FMCMainPostCell">
+                                        <rect key="frame" x="0.0" y="22" width="320" height="245"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="244"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <view opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="493" verticalHuggingPriority="531" translatesAutoresizingMaskIntoConstraints="NO" id="gha-YC-xKU" customClass="FMCProfilePictureFeedView">
+                                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="70" type="user" id="e46-oM-KHx"/>
+                                                        <constraint firstAttribute="width" constant="70" type="user" id="iAs-xH-3cm"/>
+                                                    </constraints>
+                                                </view>
+                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="1000" verticalHuggingPriority="1000" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="184" translatesAutoresizingMaskIntoConstraints="NO" id="WCS-SJ-kAx">
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" priority="446" constant="42" type="user" id="5m2-oq-W5r"/>
+                                                        <constraint firstAttribute="width" constant="184" id="sEL-rd-qcf"/>
+                                                        <constraint firstAttribute="height" constant="21" id="tBN-uG-8sF"/>
+                                                    </constraints>
+                                                    <attributedString key="attributedText">
+                                                        <fragment content="Label">
+                                                            <attributes>
+                                                                <color key="NSColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                                <font key="NSFont" size="12" name="Helvetica"/>
+                                                                <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
+                                                            </attributes>
+                                                        </fragment>
+                                                    </attributedString>
+                                                    <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                </label>
+                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8CN-3O-aXq">
+                                                    <color key="backgroundColor" red="1" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="104" id="GpM-j6-SSh"/>
+                                                        <constraint firstAttribute="height" constant="34" type="user" id="Sd3-Nm-R8Q"/>
+                                                    </constraints>
+                                                    <attributedString key="attributedText">
+                                                        <fragment content="Likes">
+                                                            <attributes>
+                                                                <color key="NSColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                                <font key="NSFont" size="12" name="Helvetica"/>
+                                                                <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
+                                                            </attributes>
+                                                        </fragment>
+                                                    </attributedString>
+                                                    <color key="highlightedColor" red="1" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                </label>
+                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8Mb-rP-wzJ">
+                                                    <color key="backgroundColor" red="0.0" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="104" id="96s-s2-ASZ"/>
+                                                    </constraints>
+                                                    <attributedString key="attributedText">
+                                                        <fragment content="Comments">
+                                                            <attributes>
+                                                                <color key="NSColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                                <font key="NSFont" size="12" name="Helvetica"/>
+                                                                <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
+                                                            </attributes>
+                                                        </fragment>
+                                                    </attributedString>
+                                                    <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                </label>
+                                                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" usesAttributedText="YES" translatesAutoresizingMaskIntoConstraints="NO" id="qIv-AG-MFb">
+                                                    <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="224" id="KYs-S7-3py"/>
+                                                        <constraint firstAttribute="height" constant="77" id="lTx-6q-bpb"/>
+                                                    </constraints>
+                                                    <attributedString key="attributedText">
+                                                        <fragment>
+                                                            <string key="content">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                                                            <attributes>
+                                                                <font key="NSFont" size="14" name="Helvetica"/>
+                                                                <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
+                                                            </attributes>
+                                                        </fragment>
+                                                    </attributedString>
+                                                    <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                                </textView>
+                                            </subviews>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        </view>
+                                        <constraints>
+                                            <constraint firstItem="8CN-3O-aXq" firstAttribute="top" secondItem="8Mb-rP-wzJ" secondAttribute="top" type="user" id="5t1-GI-lDb"/>
+                                            <constraint firstItem="gha-YC-xKU" firstAttribute="top" secondItem="P8V-zf-LMo" secondAttribute="top" constant="10" type="user" id="AUW-eu-MTe"/>
+                                            <constraint firstItem="WCS-SJ-kAx" firstAttribute="top" secondItem="P8V-zf-LMo" secondAttribute="top" constant="5" id="HWr-w5-eoY"/>
+                                            <constraint firstItem="qIv-AG-MFb" firstAttribute="top" secondItem="P8V-zf-LMo" secondAttribute="top" constant="27" id="IbN-tF-ny3"/>
+                                            <constraint firstItem="8Mb-rP-wzJ" firstAttribute="leading" secondItem="P8V-zf-LMo" secondAttribute="leading" constant="103" id="JaI-If-Udt"/>
+                                            <constraint firstItem="8Mb-rP-wzJ" firstAttribute="baseline" secondItem="8CN-3O-aXq" secondAttribute="baseline" type="user" id="Klb-fg-HFB"/>
+                                            <constraint firstAttribute="bottom" secondItem="8CN-3O-aXq" secondAttribute="bottom" constant="1" type="user" id="Nrf-Od-gNU"/>
+                                            <constraint firstItem="gha-YC-xKU" firstAttribute="leading" secondItem="P8V-zf-LMo" secondAttribute="leading" constant="10" type="user" id="P9w-pi-QG9"/>
+                                            <constraint firstAttribute="bottom" secondItem="8Mb-rP-wzJ" secondAttribute="bottom" constant="1" type="user" id="Qmt-lM-MKR"/>
+                                            <constraint firstItem="8Mb-rP-wzJ" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="P8V-zf-LMo" secondAttribute="leading" constant="103" type="user" id="eNu-4A-25X"/>
+                                            <constraint firstItem="8CN-3O-aXq" firstAttribute="leading" secondItem="P8V-zf-LMo" secondAttribute="leading" type="user" id="ghb-KU-rKu"/>
+                                            <constraint firstItem="WCS-SJ-kAx" firstAttribute="leading" secondItem="P8V-zf-LMo" secondAttribute="leading" constant="88" type="user" id="l3P-dl-oFL"/>
+                                            <constraint firstItem="qIv-AG-MFb" firstAttribute="leading" secondItem="P8V-zf-LMo" secondAttribute="leading" constant="81" id="lAz-qi-6zZ"/>
+                                            <constraint firstItem="8CN-3O-aXq" firstAttribute="leading" secondItem="P8V-zf-LMo" secondAttribute="leading" type="user" id="zKQ-pn-02F"/>
+                                        </constraints>
+                                        <connections>
+                                            <outlet property="mainPost" destination="qIv-AG-MFb" id="whU-Ln-wbP"/>
+                                            <outlet property="postComments" destination="8Mb-rP-wzJ" id="HXk-Wu-dAy"/>
+                                            <outlet property="postLikes" destination="8CN-3O-aXq" id="236-Ss-JVM"/>
+                                            <outlet property="profileName" destination="WCS-SJ-kAx" id="DrN-fi-0uq"/>
+                                            <outlet property="profileView" destination="gha-YC-xKU" id="Ytp-6F-9Dm"/>
+                                        </connections>
+                                    </tableViewCell>
+                                    <tableViewCell opaque="NO" userInteractionEnabled="NO" alpha="0.60000002384185791" contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="Comment Cell" rowHeight="119" id="Mk5-9t-5Lg" customClass="FMCFeedCell">
+                                        <rect key="frame" x="0.0" y="267" width="320" height="119"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                            <rect key="frame" x="0.0" y="0.0" width="300" height="118"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Xmz-98-Igx" customClass="FMCProfilePictureFeedView">
+                                                    <subviews>
+                                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="c0G-ou-iM3">
+                                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                                                        </view>
+                                                    </subviews>
+                                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="bottom" secondItem="c0G-ou-iM3" secondAttribute="bottom" constant="-12" id="CTu-0B-B2a"/>
+                                                        <constraint firstAttribute="trailing" secondItem="c0G-ou-iM3" secondAttribute="trailing" constant="65" id="gwl-2i-rmk"/>
+                                                        <constraint firstItem="c0G-ou-iM3" firstAttribute="top" secondItem="Xmz-98-Igx" secondAttribute="top" type="default" id="jbq-Ji-N5Q"/>
+                                                        <constraint firstItem="c0G-ou-iM3" firstAttribute="leading" secondItem="Xmz-98-Igx" secondAttribute="leading" type="default" id="yK5-J8-XLq"/>
+                                                    </constraints>
+                                                </view>
+                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aqg-qE-65g">
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="216" id="eaa-Qq-PC8"/>
+                                                    </constraints>
+                                                    <attributedString key="attributedText">
+                                                        <fragment content="Label">
+                                                            <attributes>
+                                                                <color key="NSColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                                <font key="NSFont" size="12" name="LucidaGrande-Bold"/>
+                                                                <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
+                                                            </attributes>
+                                                        </fragment>
+                                                    </attributedString>
+                                                    <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                </label>
+                                                <textView clipsSubviews="YES" multipleTouchEnabled="YES" userInteractionEnabled="NO" contentMode="scaleToFill" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" editable="NO" usesAttributedText="YES" translatesAutoresizingMaskIntoConstraints="NO" id="bI9-bI-u22">
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="228" id="SMZ-CK-FOY"/>
+                                                        <constraint firstAttribute="height" constant="67" id="rqa-pZ-CJz"/>
+                                                    </constraints>
+                                                    <attributedString key="attributedText">
+                                                        <fragment>
+                                                            <string key="content">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation </string>
+                                                            <attributes>
+                                                                <font key="NSFont" size="11" name="Geneva"/>
+                                                                <font key="NSOriginalFont" size="11" name="Geneva"/>
+                                                                <paragraphStyle key="NSParagraphStyle" alignment="justified" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
+                                                            </attributes>
+                                                        </fragment>
+                                                    </attributedString>
+                                                    <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                                </textView>
+                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="54" translatesAutoresizingMaskIntoConstraints="NO" id="1vD-BP-cho">
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="54" id="Nxf-Og-eHo"/>
+                                                    </constraints>
+                                                    <attributedString key="attributedText">
+                                                        <fragment content="Likes">
+                                                            <attributes>
+                                                                <color key="NSColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                                <font key="NSFont" size="10" name="Helvetica"/>
+                                                                <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
+                                                            </attributes>
+                                                        </fragment>
+                                                    </attributedString>
+                                                    <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                </label>
+                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="108" translatesAutoresizingMaskIntoConstraints="NO" id="Nrp-4b-Cfe">
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="108" id="h9R-qx-cWm"/>
+                                                    </constraints>
+                                                    <attributedString key="attributedText">
+                                                        <fragment content="Comments">
+                                                            <attributes>
+                                                                <color key="NSColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                                <font key="NSFont" size="10" name="Helvetica"/>
+                                                                <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
+                                                            </attributes>
+                                                        </fragment>
+                                                    </attributedString>
+                                                    <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                </label>
+                                            </subviews>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        </view>
+                                        <gestureRecognizers/>
+                                        <constraints>
+                                            <constraint firstAttribute="trailing" secondItem="Xmz-98-Igx" secondAttribute="trailing" constant="245" id="Ec5-Ar-k9U"/>
+                                            <constraint firstItem="Xmz-98-Igx" firstAttribute="leading" secondItem="Mk5-9t-5Lg" secondAttribute="leading" constant="10" id="Imv-X0-jUl"/>
+                                            <constraint firstItem="bI9-bI-u22" firstAttribute="top" secondItem="Mk5-9t-5Lg" secondAttribute="top" constant="24" id="NfU-hB-q5t"/>
+                                            <constraint firstItem="Xmz-98-Igx" firstAttribute="top" secondItem="aqg-qE-65g" secondAttribute="top" type="default" id="S8H-zH-cir"/>
+                                            <constraint firstAttribute="bottom" secondItem="Xmz-98-Igx" secondAttribute="bottom" constant="44" id="SJS-GY-XbL"/>
+                                            <constraint firstItem="1vD-BP-cho" firstAttribute="baseline" secondItem="Nrp-4b-Cfe" secondAttribute="baseline" type="default" id="TtQ-Y4-CLL"/>
+                                            <constraint firstAttribute="trailing" secondItem="Nrp-4b-Cfe" secondAttribute="trailing" constant="50" id="bSh-U9-z4y"/>
+                                            <constraint firstAttribute="bottom" secondItem="1vD-BP-cho" secondAttribute="bottom" constant="5" id="bTL-VT-8HN"/>
+                                            <constraint firstItem="Xmz-98-Igx" firstAttribute="top" secondItem="Mk5-9t-5Lg" secondAttribute="top" constant="10" id="btl-Kf-kvz"/>
+                                            <constraint firstItem="bI9-bI-u22" firstAttribute="leading" secondItem="Mk5-9t-5Lg" secondAttribute="leading" constant="76" id="cu4-DO-jYI"/>
+                                            <constraint firstItem="1vD-BP-cho" firstAttribute="leading" secondItem="aqg-qE-65g" secondAttribute="leading" type="default" id="hvs-L4-koi"/>
+                                            <constraint firstAttribute="trailing" secondItem="aqg-qE-65g" secondAttribute="trailing" constant="20" type="default" id="iY3-cQ-csR"/>
+                                        </constraints>
+                                        <connections>
+                                            <outlet property="addedByLabel" destination="aqg-qE-65g" id="Iwu-rN-i48"/>
+                                            <outlet property="comment" destination="bI9-bI-u22" id="pwy-r8-wmP"/>
+                                            <outlet property="commentCount" destination="Nrp-4b-Cfe" id="IK7-RW-WjX"/>
+                                            <outlet property="likeCount" destination="1vD-BP-cho" id="PCE-Sf-3Wd"/>
+                                            <outlet property="userProfilePictureView" destination="Xmz-98-Igx" id="nYl-na-BKH"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="Jsb-Rs-Z86" id="u27-wF-fwK"/>
+                                    <outlet property="delegate" destination="Jsb-Rs-Z86" id="rS0-8r-fga"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="Dui-0z-ser" firstAttribute="bottom" secondItem="6xf-u5-toV" secondAttribute="bottom" type="default" id="D1h-PQ-KQY"/>
+                            <constraint firstItem="Dui-0z-ser" firstAttribute="top" secondItem="6xf-u5-toV" secondAttribute="top" type="default" id="D2i-gW-i8H"/>
+                            <constraint firstItem="Dui-0z-ser" firstAttribute="leading" secondItem="6xf-u5-toV" secondAttribute="leading" type="default" id="L0i-tg-Xiv"/>
+                            <constraint firstItem="Dui-0z-ser" firstAttribute="trailing" secondItem="6xf-u5-toV" secondAttribute="trailing" type="default" id="Yhj-Aq-4rn"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="PaE-OV-84o"/>
+                    <connections>
+                        <outlet property="tableView" destination="Dui-0z-ser" id="Ia0-Kn-bss"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="qgo-Es-ojj" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1674" y="242"/>
+        </scene>
         <!--Navigation Controller - Post-->
         <scene sceneID="sg3-1p-953">
             <objects>
                 <navigationController id="Nbn-lZ-dCb" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Post" image="Icon-36.png" id="mUw-UG-ogE"/>
+                    <tabBarItem key="tabBarItem" title="Post" image="postIcon.png" id="mUw-UG-ogE"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="mhF-hC-9bs">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -324,6 +576,7 @@
     <resources>
         <image name="FMCWelcome.jpg" width="822" height="215"/>
         <image name="Icon-36.png" width="36" height="36"/>
+        <image name="postIcon.png" width="36" height="36"/>
     </resources>
     <classes>
         <class className="FBLoginView" superclassName="UIView">
@@ -343,6 +596,12 @@
                 <relationship kind="outlet" name="userProfilePictureView" candidateClass="FMCProfilePictureFeedView"/>
             </relationships>
         </class>
+        <class className="FMCFeedPostViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/FMCFeedPostViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="tableView" candidateClass="UITableView"/>
+            </relationships>
+        </class>
         <class className="FMCFeedViewController" superclassName="FMCViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/FMCFeedViewController.h"/>
             <relationships>
@@ -353,6 +612,16 @@
             <source key="sourceIdentifier" type="project" relativePath="./Classes/FMCLoginViewController.h"/>
             <relationships>
                 <relationship kind="outlet" name="loginView" candidateClass="FBLoginView"/>
+            </relationships>
+        </class>
+        <class className="FMCMainPostCell" superclassName="UITableViewCell">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/FMCMainPostCell.h"/>
+            <relationships>
+                <relationship kind="outlet" name="mainPost" candidateClass="UITextView"/>
+                <relationship kind="outlet" name="postComments" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="postLikes" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="profileName" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="profileView" candidateClass="FMCProfilePictureFeedView"/>
             </relationships>
         </class>
         <class className="FMCMapViewController" superclassName="FMCViewController">
@@ -366,6 +635,9 @@
         </class>
         <class className="FMCViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/FMCViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="logOut:"/>
+            </relationships>
         </class>
         <class className="NSLayoutConstraint" superclassName="NSObject">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/NSLayoutConstraint.h"/>

@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "FMCProfilePictureFeedView.h"
+#import "Post.h"
 @interface FMCFeedCell : UITableViewCell
 @property (strong, nonatomic) IBOutlet UILabel *addDateLabel;
 @property (strong, nonatomic) IBOutlet UILabel *addedByLabel;
@@ -16,5 +17,6 @@
 @property (strong, nonatomic) IBOutlet UILabel *likeCount;
 
 @property (strong, nonatomic) IBOutlet UILabel *commentCount;
-@property (strong, nonatomic) NSString *postID; 
+@property (strong, nonatomic) NSString *postID;
+@property (strong, nonatomic) Post *post; 
 @end

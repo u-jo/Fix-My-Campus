@@ -26,7 +26,7 @@
     
     [roundedRect addClip];
     
-    [[UIColor whiteColor] setFill];
+    [[UIColor clearColor] setFill];
     UIRectFill(self.bounds);
     [self.image drawInRect:self.bounds];
     
